@@ -26,5 +26,16 @@
 ### set2.pcap
 10. How many packets are there in this set?
     > 77982
-11. 
+11. How many plaintext username-passowrd pairs are there in this packet set? Please count any anonymous or generic accounts.
+    > 1. larry@radsot.com : Z3lenzmej
+12. Briefly describe how you found the username-password pairs.
+    > Searched for "login" in the packets on Wireshark. Followed the TCP Stream for each of the search results.
+13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
+    > 
+14. Of all the plaintext username-password pairs that you found, how many of them are legitimate?
+    > 1
+
+### set3.pcap
+15. How many plaintext username-passowrd pairs are there in this packet set? Please count any anonymous or generic accounts.  
+16. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 
