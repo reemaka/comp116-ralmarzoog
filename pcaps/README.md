@@ -23,5 +23,8 @@
 	> COaqQWnU8AAwX3K.jpg
 9. Extract all the files that were transferred from PC to server.
 
-
+### set2.pcap
+10. How many packets are there in this set?
+    > 77982
+11. 
 
