@@ -50,7 +50,7 @@
 
 13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 
-    > 
+    >  1. SMTP, 54.240.13.8, a13-8.smtp-out.amazonses.com 
 
 14. Of all the plaintext username-password pairs that you found, how many of them are legitimate?
 
@@ -58,5 +58,18 @@
 
 ### set3.pcap
 15. How many plaintext username-password pairs are there in this packet set? Please count any anonymous or generic accounts.  
+
+    > 1. seymore : butts
+
 16. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
+
+    > 1. HTTP, forum.defcon.org
+
+17. Of all the plaintext username-password pairs that you found, how many of them are legitimate?
+
+    > 0
+
+18. Provide a listing of all IP addresses with corresponding hosts (hostname + domain name) that are in this PCAP set. Describe your methodology.
+
+    > The list is in the file called set3hosts.txt. I used tshark to generate this list.
 
