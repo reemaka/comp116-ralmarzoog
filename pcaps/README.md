@@ -22,6 +22,7 @@
 6. What was the username and password used to access the server?
 
     > username: defcon
+    
     > password: m1ngisablowhard 
 
 7. How many files were transferred from PC to server?
@@ -31,10 +32,15 @@
 8. What are the names of the files transferred from PC to server?
 
     > CDkv69qUsAAq8zN.jpg
+    
     > CJoWmoOUkAAAYpx.jpg
+    
     > CKBXgmOWcAAtc4u.jpg
+    
     > CLu-m0MWoAAgjkr.jpg
+    
     > CNsAEaYUYAARuaj.jpg
+    
     > COaqQWnU8AAwX3K.jpg
 
 9. Extract all the files that were transferred from PC to server.
@@ -59,8 +65,11 @@
 13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 
     > 1. Protocol: IMAP
+    
     >    IP: 87.120.13.118
+    
     >    Port: 143
+    
     >    Domain: ALINK-NETERRA (in Bulgaria)
 
 14. Of all the plaintext username-password pairs that you found, how many of them are legitimate?
@@ -77,8 +86,11 @@
 16. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 
     > 1. Protocol: HTTP
+    
     >    IP: 162.222.171.208
+    
     >    Port: 80
+    
     >    domain: forum.defcon.org
 
 17. Of all the plaintext username-password pairs that you found, how many of them are legitimate?
