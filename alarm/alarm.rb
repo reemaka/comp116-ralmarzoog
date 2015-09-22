@@ -7,14 +7,6 @@ def print_alert(incident_num, incident, source_ip, protocol, payload)
     puts alert
 end
 
-def parse_payload(payload)
-    #puts "PAYLOAD:"
-    if !payload.empty?
-    #    puts Base64.encode64(payload)
-    #    puts payload.unpack("H*")
-    end
-end
-
 def parse_log_line(line)
     if !line.empty?
         space_line = line.split(" ")
@@ -80,7 +72,7 @@ else
 
     stream.stream.each do |packet|
         pkt = PacketFu::Packet.parse(packet)
-        #parse_payload(pkt.payload)
+
         if pkt.payload.match(/\x4E\x6D\x61\x70/)
             print_alert(index, "Nmap scan", pkt.ip_saddr, pkt.proto().last, pkt.payload.to_s)
             index += 1
