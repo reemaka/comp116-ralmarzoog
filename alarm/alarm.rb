@@ -74,11 +74,23 @@ else
 
     stream.stream.each do |packet|
         pkt = PacketFu::Packet.parse(packet)
-        parse_payload(pkt.payload)
+        #parse_payload(pkt.payload)
         if pkt.payload.match(/\x4E\x6D\x61\x70/)
             print_alert(index, "Nmap scan", pkt.ip_saddr, pkt.proto().last, pkt.payload.to_s)
             index += 1
-        elsif pkt.class == PacketFu::TCPPacket
+        end
+
+        if pkt.payload.match(/\x4E\x69\x6B\x74\x6F/)
+            print_alert(index, "Nikto scan", pkt.ip_saddr, pkt.proto(). last, pkt.payload.to_s)
+            index += 1
+        end
+
+        if pkt.payload.match(/[45]\d{3}((\s|-)?\d{4}){3}/) or pkt.payload.match(/6011((\s|-)?\d{4}){3}/) or pkt.payload.match(/3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}/)
+            print_alert(index, "Credit card number in the clear", pkt.ip_saddr, pkt.proto().last, pkt.payload.to_s)
+            index += 1
+        end
+
+        if pkt.class == PacketFu::TCPPacket
             #puts pkt.tcp_flags
             flags = pkt.tcp_flags
             if flags.syn == 0 and flags.rst == 0 and flags.ack == 0
