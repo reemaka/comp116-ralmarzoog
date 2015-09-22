@@ -8,8 +8,10 @@ def print_alert(incident_num, incident, source_ip, protocol, payload)
 end
 
 def parse_payload(payload)
+    puts "PAYLOAD:"
     if !payload.empty?
         puts Base64.encode64(payload)
+        puts payload.unpack("H*")
     end
 end
 
@@ -43,23 +45,23 @@ if (opt_index != nil)
                     downcase_line = line.downcase
                     no_space_line = line.gsub(/\s+/, "")
                     source_ip, request, protocol, payload = parse_log_line(line)
-                    if line.include?("phpmyadmin")
+                    if downcase_line.include?("phpmyadmin")
                         print_alert(index, "Someone looking for phpMyAdmin stuff", source_ip, protocol, payload)
                         index += 1
-                    elsif line.include?("nmap")
+                    elsif downcase_line.include?("nmap")
                         print_alert(index, "Nmap scan", source_ip, protocol, payload)
                         index += 1
-                    elsif line.include?("masscan")
+                    elsif downcase_line.include?("masscan")
                         print_alert(index, "Masscan", source_ip, protocol, payload)
                         index += 1
                     elsif no_space_line.include?("(){:;};")
                         print_alert(index, "Potential Shellshock scan", source_ip, protocol, payload)
                         index += 1
+                    elsif line =~ /([\\\\][x][a-zA-z\d]{2})+/
+                        print_alert(index, "Potential shellcode", source_ip, protocol, payload)
                     end
                 end
             end
-        rescue
-            puts "Error"
         end
     end
 else
