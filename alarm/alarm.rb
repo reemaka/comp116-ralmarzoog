@@ -40,12 +40,20 @@ if (opt_index != nil)
             log_file_name = args[opt_index + 1]
             File.open(log_file_name, "r") do |file|
                 while (line = file.gets)
+                    downcase_line = line.downcase
+                    no_space_line = line.gsub(/\s+/, "")
                     source_ip, request, protocol, payload = parse_log_line(line)
-                    if line.include?("phpMyAdmin")
+                    if line.include?("phpmyadmin")
                         print_alert(index, "Someone looking for phpMyAdmin stuff", source_ip, protocol, payload)
                         index += 1
                     elsif line.include?("nmap")
                         print_alert(index, "Nmap scan", source_ip, protocol, payload)
+                        index += 1
+                    elsif line.include?("masscan")
+                        print_alert(index, "Masscan", source_ip, protocol, payload)
+                        index += 1
+                    elsif no_space_line.include?("(){:;};")
+                        print_alert(index, "Potential Shellshock scan", source_ip, protocol, payload)
                         index += 1
                     end
                 end
