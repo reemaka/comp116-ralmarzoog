@@ -1,7 +1,7 @@
 ## Incident Alarm
 1. Identify what aspects of the work have been correctly implemented and what have not.
 
-    > TODO
+    > To my knowledge, everything has been correctly implemented
 
 2. Identify anyone with whom you have collaborated or discussed the assignment.
 
@@ -21,5 +21,5 @@
 
 2. If you have spare time in the future, what would you add to the program or do differently with regards to detecting incidents?
 
-    > TODO
+    > Detect more specific Nmap incidents, detect more incidents in general, support PCAP file reading, try to avoid more false negatives by detecting specific attributes of scans rather than just the presence of "nikto" or "nmap" as the case may be.
 
