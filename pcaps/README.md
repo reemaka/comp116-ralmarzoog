@@ -1,6 +1,8 @@
 ### set1.pcap
 1. How many packets are there in this set?
-> 861
+
+861
+
 2. What protocol was used to transfer files from PC to server?
 > TCP
 3. Briefly describe why the protocol sued to transfer the files is insecure?
